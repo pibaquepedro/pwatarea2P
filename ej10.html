@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejercicio 10 - Quiz</title>
+<style>
+  body { background:#1e1e1e; color:white; text-align:center; font-family:'Segoe UI'; }
+  .pregunta { background:#333; width:350px; margin:40px auto; padding:20px; border-radius:10px; }
+  button { background:#00bcd4; border:none; color:white; padding:10px; border-radius:8px; cursor:pointer; margin-top:10px; }
+  button:hover { background:#0097a7; }
+</style>
+</head>
+<body>
+<h1>Ejercicio 10: Preguntas y Respuestas</h1>
+<div class="pregunta" id="quiz"></div>
+
+<script>
+  const preguntas = [
+    { q: "¿Qué significa HTML?", a: ["HyperText Markup Language", "Hyperlinks Text Module Language", "Home Tool Markup Language"], correct: 0 },
+    { q: "¿Qué lenguaje se usa para estilos?", a: ["Python", "CSS", "C++"], correct: 1 },
+    { q: "¿Qué hace JavaScript?", a: ["Dar estructura", "Dar estilo", "Dar interactividad"], correct: 2 }
+  ];
+  let i = 0, puntaje = 0;
+  const quiz = document.getElementById("quiz");
+  function mostrarPregunta() {
+    if (i >= preguntas.length) {
+      quiz.innerHTML = `<h2>Tu puntaje final es: ${puntaje}/${preguntas.length}</h2>`;
+      return;
+    }
+    const p = preguntas[i];
+    quiz.innerHTML = `<h3>${p.q}</h3>`;
+    p.a.forEach((op, index) => {
+      const btn = document.createElement("button");
+      btn.textContent = op;
+      btn.onclick = () => {
+        if (index === p.correct) puntaje++;
+        i++; mostrarPregunta();
+      };
+      quiz.appendChild(btn);
+    });
+  }
+  mostrarPregunta();
+</script>
+</body>
+</html>
+
+

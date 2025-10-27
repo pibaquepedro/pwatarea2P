@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejercicio 5 - Formulario</title>
+<style>
+  body { background:#1e1e1e; color:white; text-align:center; font-family:'Segoe UI'; }
+  form { background:#333; width:300px; margin:50px auto; padding:20px; border-radius:10px; }
+  input { width:90%; padding:10px; margin:10px 0; border:none; border-radius:5px; }
+  button { background:#00bcd4; border:none; padding:10px 20px; color:white; border-radius:8px; cursor:pointer; }
+  button:hover { background:#0097a7; }
+</style>
+</head>
+<body>
+<h1>Ejercicio 5: Validación de Formulario</h1>
+<form onsubmit="return validarFormulario()">
+  <input type="text" id="nombre" placeholder="Nombre"><br>
+  <input type="email" id="correo" placeholder="Correo electrónico"><br>
+  <input type="password" id="clave" placeholder="Contraseña"><br>
+  <button type="submit">Enviar</button>
+</form>
+
+<script>
+  function validarFormulario() {
+    const nombre = document.getElementById("nombre").value.trim();
+    const correo = document.getElementById("correo").value.trim();
+    const clave = document.getElementById("clave").value.trim();
+    if (!nombre || !correo || !clave) {
+      alert("Por favor complete todos los campos.");
+      return false;
+    }
+    alert("Formulario enviado correctamente ✅");
+    return true;
+  }
+</script>
+</body>
+</html>
+
+

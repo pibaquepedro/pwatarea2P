@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejercicio 2</title>
+<style>
+  body { background: #1e1e1e; text-align: center; color: #fff; font-family: 'Segoe UI', sans-serif; }
+  .calculadora { display: inline-block; background: #333; padding: 20px; border-radius: 10px; margin-top: 40px; }
+  input { width: 100%; margin-bottom: 10px; padding: 10px; text-align: right; font-size: 18px; border-radius: 5px; border: none; }
+  button { width: 50px; height: 50px; margin: 5px; font-size: 18px; background: #00bcd4; border: none; border-radius: 8px; color: #fff; }
+  button:hover { background: #0097a7; }
+</style>
+</head>
+<body>
+<h1>Ejercicio 2: Calculadora</h1>
+<div class="calculadora">
+  <input type="text" id="resultado" disabled>
+  <div id="botones"></div>
+</div>
+<script>
+  const botones = ['7','8','9','/','4','5','6','*','1','2','3','-','0','.','=','+'];
+  const contenedor = document.getElementById("botones");
+  botones.forEach(valor => {
+    const btn = document.createElement("button");
+    btn.textContent = valor;
+    btn.onclick = () => {
+      const res = document.getElementById("resultado");
+      if (valor === '=') {
+        try { res.value = eval(res.value); } catch { res.value = "Error"; }
+      } else res.value += valor;
+    };
+    contenedor.appendChild(btn);
+  });
+</script>
+</body>
+</html>
+

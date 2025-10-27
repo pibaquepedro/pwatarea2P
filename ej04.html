@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejercicio 4 - Reloj Analógico</title>
+<style>
+  body { background:#1e1e1e; color:#fff; text-align:center; font-family:'Segoe UI'; }
+  .reloj {
+    position: relative;
+    width: 250px; height: 250px;
+    margin: 60px auto;
+    border: 8px solid #00bcd4;
+    border-radius: 50%;
+  }
+  .manecilla {
+    position: absolute;
+    background: #00bcd4;
+    top: 50%; left: 50%;
+    transform-origin: bottom;
+    transform: rotate(0deg);
+    border-radius: 4px;
+  }
+  #hora { width: 6px; height: 60px; }
+  #minuto { width: 4px; height: 90px; background:#4caf50; }
+  #segundo { width: 2px; height: 110px; background:#f44336; }
+</style>
+</head>
+<body>
+<h1>Ejercicio 4: Reloj Analógico</h1>
+<div class="reloj">
+  <div id="hora" class="manecilla"></div>
+  <div id="minuto" class="manecilla"></div>
+  <div id="segundo" class="manecilla"></div>
+</div>
+
+<script>
+  function actualizarReloj() {
+    const ahora = new Date();
+    const seg = ahora.getSeconds() * 6;
+    const min = ahora.getMinutes() * 6 + seg/60;
+    const hr = ((ahora.getHours() % 12) / 12) * 360 + min/12;
+    document.getElementById("hora").style.transform = `translate(-50%, -100%) rotate(${hr}deg)`;
+    document.getElementById("minuto").style.transform = `translate(-50%, -100%) rotate(${min}deg)`;
+    document.getElementById("segundo").style.transform = `translate(-50%, -100%) rotate(${seg}deg)`;
+  }
+  setInterval(actualizarReloj, 1000);
+  actualizarReloj();
+</script>
+</body>
+</html>

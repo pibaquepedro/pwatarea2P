@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejercicio 1</title>
+<style>
+  body {
+    background-color: #1e1e1e;
+    text-align: center;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  #caja {
+    width: 200px;
+    height: 200px;
+    background-color: #444;
+    margin: 50px auto;
+    border-radius: 15px;
+    transition: background-color 0.5s;
+  }
+  button {
+    background-color: #00bcd4;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #0097a7;
+  }
+</style>
+</head>
+<body>
+  <h1>Ejercicio 1: Cambio de Estilo</h1>
+  <div id="caja"></div>
+  <button onclick="cambiarColor()">Cambiar Color</button>
+
+  <script>
+    function cambiarColor() {
+      const colores = ["#00bcd4", "#4caf50", "#ff9800", "#9c27b0", "#607d8b"];
+      const caja = document.getElementById("caja");
+      caja.style.backgroundColor = colores[Math.floor(Math.random() * colores.length)];
+    }
+  </script>
+</body>
+</html>

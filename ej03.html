@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejercicio 3</title>
+<style>
+  body { background: #1e1e1e; text-align: center; color: white; font-family: 'Segoe UI', sans-serif; }
+  img { width: 300px; height: auto; border-radius: 12px; transition: 0.5s; margin-top: 50px; }
+</style>
+</head>
+<body>
+<h1>Ejercicio 3: Cambio de Imagen</h1>
+<img id="imagen" src="https://picsum.photos/300/200?1" 
+     onmouseover="cambiarImagen()" 
+     onmouseout="restaurarImagen()">
+
+<script>
+  function cambiarImagen() {
+    document.getElementById("imagen").src = "https://picsum.photos/300/200?2";
+  }
+  function restaurarImagen() {
+    document.getElementById("imagen").src = "https://picsum.photos/300/200?1";
+  }
+</script>
+</body>
+</html>
+
+
